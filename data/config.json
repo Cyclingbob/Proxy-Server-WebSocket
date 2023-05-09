@@ -1,0 +1,18 @@
+{
+    "http_port": 80,
+    "ws_port": 80,
+    "panel_password": "secretpass",
+    "http_active": true,
+    "ws_active": true,
+    "useSSLHTTP": false,
+    "sslHTTP": {
+        "cert": "",
+        "private_key": ""
+    },
+    "useSSLWS": false,
+    "sslWS": {
+        "cert": "",
+        "private_key": ""
+    },
+    "plugin_folder": "/home/admin/dnsv7/plugins"
+}
