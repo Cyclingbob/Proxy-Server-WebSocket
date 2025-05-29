@@ -97,7 +97,7 @@ if(config.ws_active){
     else {
         if(config.useSSLWS){
             let httpServer = https.createServer({
-                cert: fs.readFileSync(config.sslWS.cert),
+                cert: fs.readFileSync(config.sslWS.certificate),
                 key: fs.readFileSync(config.sslWS.private_key)
             })
             wss = new WebSocketServer({ httpServer });
