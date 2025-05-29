@@ -1,18 +1,18 @@
 {
     "http_port": 80,
-    "ws_port": 80,
-    "panel_password": "secretpass",
+    "ws_port": 443,
+    "panel_password": "your_password",
     "http_active": true,
-    "ws_active": true,
+    "ws_active": false,
     "useSSLHTTP": false,
     "sslHTTP": {
-        "cert": "",
-        "private_key": ""
+        "certificate": "<WEBSERVER SSL CERTIFICATE>",
+        "private_key": "<WEBSERVER SSL PRIVATE KEY>"
     },
     "useSSLWS": false,
     "sslWS": {
-        "cert": "",
-        "private_key": ""
+        "certificate": "<WEBSOCKET SSL CERTIFICATE IF NO HTTPS SERVER>",
+        "private_key": "<WEBSOCKET SSL PRIVATE KEY IF NO HTTPS SERVER>"
     },
-    "plugin_folder": "/home/admin/dnsv7/plugins"
+    "plugin_folder": "<PLUGIN DIR>"
 }
