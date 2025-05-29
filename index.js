@@ -34,10 +34,10 @@ files.map(file => {
     }
 })
 
-if(config.useSSL){
+if(config.useSSLHTTP){
     var server = https.createServer({
-        cert: fs.readFileSync(config.certificate),
-        key: fs.readFileSync(config.privateKey)
+        cert: fs.readFileSync(config.sslHTTP.certificate),
+        key: fs.readFileSync(config.sslHTTP.private_key)
     })
 } else var server = http.createServer()
 
