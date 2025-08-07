@@ -38,10 +38,6 @@ const cookieParser = require('cookie-parser')
 panel.use(cookieParser())
 panel.use(express.json())
 panel.use("/panel/public", express.static(path.join(__dirname, "public")))
-panel.use((req, res, next) => {
-    console.log(req.path, req.headers.host)
-    next()
-})
 panel.get("/panel/login", (req, res) => {
     res.sendFile(__dirname + "/views/panel/login.html")
 })
@@ -115,9 +111,6 @@ if(config.useSSLHTTP){
 } else var server = http.createServer()
 
 server.on('request', (originalReq, originalRes) => {
-
-    // console.log("[REQ]", originalReq.method, originalReq.headers.host, originalReq.url)
-    // if(originalReq.headers.host === current_panel_domain) return panel(originalReq, originalRes)
 
     const isPanelRequest = (
         originalReq.headers.host === current_panel_domain
@@ -217,7 +210,6 @@ if(config.ws_active){
       
         // Forward messages from the target WebSocket to the client WebSocket
         proxy.on('message', (message) => {
-            console.log(message)
             ws.send(message.toString());
         });
       
@@ -230,7 +222,7 @@ if(config.ws_active){
 }
 
 if(config.http_active) server.listen(config.http_port, "0.0.0.0", err => {
-    if (err) console.log("Error in server setup")
+    if (err) console.error("Error in server setup", err)
     console.log("Server listening on Port", config.http_port);
 })
 
